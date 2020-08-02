@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 function debounce(fn, defer) {
   let timer;
@@ -20,6 +21,11 @@ function InputText({ onChange, defer }) {
 
 InputText.defaultProps = {
   defer: 500
+}
+
+InputText.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  defer: PropTypes.Number
 }
 
 export default React.memo(InputText)
