@@ -16,7 +16,7 @@ const HEADER = [
 function App() {
   const randomData = React.useMemo(() => generateRandomData(100), []);
   const [data, setData] = React.useState(randomData);
-  const [filters, setFilters] = React.useState(["name", "mobile", "clientname"]);
+  const [filters, setFilters] = React.useState(["name", "mobile", "clientName"]);
 
   const onTextChange = React.useCallback(e => {
     const query = e.target.value.toLowerCase();

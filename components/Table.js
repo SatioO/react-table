@@ -14,7 +14,7 @@ const TableRow = React.memo(({ item }) => (
   <tr>
     <td>{item.userId}</td>
     <td>{item.name}</td>
-    <td>{item.clientname}</td>
+    <td>{item.clientName}</td>
     <td>{item.mobile}</td>
     <td>{item.age}</td>
     <td>{item.relationship}</td>
