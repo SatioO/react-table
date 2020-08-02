@@ -1,8 +1,7 @@
 import "./style.css";
 import React from "react";
 import { render } from "react-dom";
-import Table from "./Table";
-import InputText from "./InputText";
+import {Table, InputText} from "./components";
 import { generateRandomData } from "./utils";
 
 const HEADER = [
