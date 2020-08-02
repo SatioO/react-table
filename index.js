@@ -1,7 +1,7 @@
 import "./style.css";
 import React from "react";
 import { render } from "react-dom";
-import {Table, InputText} from "./components";
+import { Table, InputText } from "./components";
 import { generateRandomData } from "./utils";
 
 const HEADER = [
@@ -16,22 +16,19 @@ const HEADER = [
 function App() {
   const randomData = React.useMemo(() => generateRandomData(100), []);
   const [data, setData] = React.useState(randomData);
-  const [filters, setFilters] = React.useState(["name", "mobile"]);
+  const [filters, setFilters] = React.useState(["name", "mobile", "clientname"]);
 
   const onTextChange = React.useCallback(e => {
     const query = e.target.value.toLowerCase();
 
     const filtered = randomData.filter(
       item =>
-        filters
-          .map(
-            filter =>
-              item[filter]
-                .toString()
-                .toLowerCase()
-                .includes(query)
-          )
-          .includes(true)
+        filters.filter(filter =>
+          item[filter]
+            .toString()
+            .toLowerCase()
+            .includes(query)
+        ).length > 0
     );
 
     setData(filtered);
@@ -39,10 +36,10 @@ function App() {
 
   return (
     <>
-    <InputText onChange={onTextChange} />,
-    <Table header={HEADER} data={data} />
+      <InputText onChange={onTextChange} />,
+      <Table header={HEADER} data={data} />
     </>
-  )
+  );
 }
 
 render(<App />, document.getElementById("root"));
